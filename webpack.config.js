@@ -12,11 +12,23 @@ module.exports = {
         contentBase: path.join(__dirname, './dist')
     },
     module: {
-        rules: [{
-            test: /(\.js|\.jsx)$/,
-            use: ['babel-loader?cacheDirectory=true'],
-            include: path.join(__dirname, 'src')
-        }]
+        rules: [
+            {
+                test: /(\.js|\.jsx)$/,
+                use: ['babel-loader?cacheDirectory=true'],
+                include: path.join(__dirname, 'src')
+            },
+            {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+                include: path.join(__dirname, 'src')
+            }
+        ]
+    },
+    resolve: {
+        alias: {
+            '@comp': path.join(__dirname, 'src/components')
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({
