@@ -1,8 +1,12 @@
 import React, {Component} from 'react'
-
 import './index.scss'
 
 class App extends Component {
+
+    inputText = e => {
+        console.log(e.target.value)
+    }
+
     render() {
         return (
             <div className="app">
@@ -13,9 +17,12 @@ class App extends Component {
                             type="text" 
                             className="form-control"
                             placeholder="i have to..."
+                            onChange={this.inputText}
                         />
                     </div>
-                    <button type="button" className="btn btn-success">add reminder</button>
+                    <button type="button" className="btn btn-success">
+                        add reminder
+                    </button>
                 </div>
             </div>
         )
